@@ -7,7 +7,7 @@ router = APIRouter()
 app = FastAPI()
 
 def compress_image_to_buffer(image: Image.Image, max_size_kb: int, quality: int = 95) -> io.BytesIO:
-    """Compress image to a buffer with target size."""
+    """Compress image to a buffer with target sizes."""
     buffer = io.BytesIO()
     image.save(buffer, "JPEG", quality=quality)
     buffer.seek(0)
@@ -83,3 +83,8 @@ async def compress_image(
 
 # Include the router in the FastAPI app
 app.include_router(router)
+
+
+
+
+
